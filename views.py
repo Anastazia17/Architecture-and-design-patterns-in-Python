@@ -1,4 +1,4 @@
-from Anastazia_Framework.templator import  import render
+from Anastazia_Framework.templator import render
 
 
 class Index:
