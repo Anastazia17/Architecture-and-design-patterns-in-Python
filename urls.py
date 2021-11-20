@@ -1,10 +1,11 @@
 from datetime import date
-from views import Index, About
+from views import Index, Guess, Puzzle
 
 
 # front controller
 def secret_front(request):
     request['data'] = date.today()
+
 
 def other_front(request):
     request['key'] = 'key'
@@ -14,5 +15,6 @@ fronts = [secret_front, other_front]
 
 routes = {
     '/': Index(),
-    '/about/': About(),
+    '/guess/': Guess(),
+    '/puzzle/': Puzzle(),
 }

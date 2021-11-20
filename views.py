@@ -6,9 +6,14 @@ class Index:
         return '200 OK', render('index.html', data=request.get('data', None))
 
 
-class About:
+class Guess:
     def __call__(self, request):
-        return '200 OK', 'about'
+        return '200 OK', render('guess.html')
+
+
+class Puzzle:
+    def __call__(self, request):
+        return '200 OK', render('puzzle.html')
 
 
 class NotFound404:
