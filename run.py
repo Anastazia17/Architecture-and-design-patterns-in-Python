@@ -1,7 +1,6 @@
+from wsgiref.simple_server import make_server
 from anastazia_framework.main import Framework
 from urls import routes, fronts
-from wsgiref.simple_server import make_server
-
 
 # Создаем объект WSGI-приложения
 application = Framework(routes,fronts)
