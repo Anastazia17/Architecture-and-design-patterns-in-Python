@@ -1,38 +1,49 @@
 from datetime import date
 from anastazia_framework.templator import render
 from patterns.сreational_patterns import Engine, Logger
+from patterns.structural_patterns import AppRoute, Debug
 
 
 site = Engine()
 logger = Logger('main')
 
+routes = {}
 
 # Контроллер - Главная страница
+@AppRoute(routes=routes, url='/')
 class Index:
+    @Debug(name='Index')
     def __call__(self, request):
-        return '200 OK', render('index.html', data=date.today(), objects_list=site.answers)
+        return '200 OK', render('index.html', objects_list=site.answers)
 
 
 # Контроллер - Игра Угадайка
+@AppRoute(routes=routes, url='/guess/')
 class Guess:
+    @Debug(name='Guess')
     def __call__(self, request):
         return '200 OK', render('guess.html')
 
 
 # Контроллер - Игра Загадки
+@AppRoute(routes=routes, url='/puzzle/')
 class Puzzle:
+    @Debug(name='Puzzle')
     def __call__(self, request):
         return '200 OK', render('puzzle.html')
 
 
 # Контроллер 404
 class NotFound404:
+    @Debug(name='NotFound404')
     def __call__(self, request):
         return '404 WHAT', '404 PAGE Not Found'
 
 
 # Контроллер - создать ответ в игре
+@AppRoute(routes=routes, url='/create-answer/')
 class CreateAnswer:
+    @Debug(name='CreateAnswer')
     def __call__(self, request):
 
         if request['method'] == 'POST':
@@ -60,14 +71,18 @@ class CreateAnswer:
 
 
 # Контроллер - список ответов
+@AppRoute(routes=routes, url='/answers_list/')
 class AnswersList:
+    @Debug(name='AnswersList')
     def __call__(self, request):
         logger.log('Список ответов')
         return '200 OK', render('answers_list.html', objects_list=site.answers)
 
 
 # Контроллер - копировать ответ
+@AppRoute(routes=routes, url='/copy-answer/')
 class CopyAnswer:
+    @Debug(name='CopyAnswer')
     def __call__(self, request):
         request_params = request['request_params']
 
