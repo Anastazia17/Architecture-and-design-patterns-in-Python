@@ -74,7 +74,7 @@ class DebugApplication(Framework):
 
 
 # Новый вид WSGI-application. Второй — фейковый.
-# На все запросы пользователя отвечает: "200 OK, Привет от Фэйка! Как дела?".
+# На все запросы пользователя отвечает: “200 OK”, “Hello from Fake”.
 class FakeApplication(Framework):
     def __init__(self, routes_obj, fronts_obj):
         self.application = Framework(routes_obj, fronts_obj)
@@ -82,4 +82,4 @@ class FakeApplication(Framework):
 
     def __call__(self, env, start_response):
         start_response('200 OK', [('Content-Type', 'text/html')])
-        return [b'Привет от Фэйка! Как дела?']
+        return [b'Hello from Fake']
