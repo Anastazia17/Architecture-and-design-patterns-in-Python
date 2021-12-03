@@ -20,8 +20,8 @@ class Player(User):
 # Порождающий паттерн Абстрактная фабрика - фабрика пользователей
 class UserFactory:
     types = {
-        'reviewer': Reviewer
-        'player': Player,
+        'reviewer': Reviewer,
+        'player': Player
     }
 
     # Порождающий паттерн Фабричный метод
