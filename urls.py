@@ -11,12 +11,3 @@ def other_front(request):
 
 
 fronts = [secret_front, other_front]
-
-routes = {
-    '/': Index(),
-    '/guess/': Guess(),
-    '/puzzle/': Puzzle(),
-    '/create_answer/': CreateAnswer(),
-    '/answers_list/': AnswersList(),
-    '/copy-answer/': CopyAnswer()
-}
