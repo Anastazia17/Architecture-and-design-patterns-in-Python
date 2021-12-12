@@ -1,5 +1,6 @@
 import copy
 import quopri
+from behavioral_patterns import ConsoleWriter, Game
 
 
 # Абстрактный пользователь

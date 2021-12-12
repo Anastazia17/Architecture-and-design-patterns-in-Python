@@ -95,7 +95,7 @@ class CreateView(TemplateView):
 
     def __call__(self, request):
         if request['method'] == 'POST':
-            # метод пост
+            # Метод пост
             data = self.get_request_data(request)
             self.create_obj(data)
 
